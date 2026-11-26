@@ -1,0 +1,13 @@
+{
+  "projects": {
+    "default": "project-523229263760528315"
+  },
+  "targets": {
+    "project-523229263760528315": {
+      "hosting": {
+        "game": ["12321"]
+      }
+    }
+  },
+  "etags": {}
+}

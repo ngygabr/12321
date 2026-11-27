@@ -264,6 +264,24 @@ a.sl{font-weight:600;font-size:.78rem;margin-left:6px;color:inherit;opacity:.8}
 #twp .bwt3 td{font-size:.86rem;padding:4px 6px;border-top:1px solid var(--bd);vertical-align:top}
 #twp .bwt3 td:first-child{width:auto}
 #twk{white-space:nowrap}
+#bt .hl{visibility:hidden} /* LAB: no hint */
+.gol{margin-top:6px;align-self:center;font-size:1.1rem;font-weight:700;opacity:1;color:var(--fg)}
+.gos{display:flex;width:100%;border:2px solid var(--fg);border-radius:12px;padding:3px;gap:3px;box-sizing:border-box}
+.gos .go{flex:1 1 0;min-width:0;padding:8px 4px;line-height:1.2;border-radius:9px;font-size:1.02rem}
+.gos .go{display:grid;align-items:stretch}
+.gos .go>span{align-self:stretch}
+.gos .go>span:first-child{display:flex;flex-direction:column;align-items:center;justify-content:space-between}
+.gos .go>span+span{align-self:center}
+.gst{font-style:normal;font-size:.9rem;letter-spacing:1px;color:#f2c230;margin-top:2px}
+.nost .gst{display:none}
+.str{color:#d9a400;letter-spacing:1px;font-size:.95em;margin-left:4px;white-space:nowrap}
+#tch{display:none}
+#gm.choose #tch{display:block;max-width:520px;margin:40px auto;padding:22px 24px;border:2px dashed var(--bd);border-radius:14px;text-align:center;line-height:1.45}
+#gm.choose #tch p{margin:6px 0}
+#gm.choose #ctl,#gm.choose #lamps,#gm.choose #wrap,#gm.choose #bt,#gm.choose #res,#gm.choose #status,#gm.choose #rmz,#gm.choose #logp{display:none!important}
+.tlc{font-size:.9rem;margin:0 0 10px;font-weight:600}
+.rts{margin:4px 0 6px;font-weight:600}
+.rts .str{font-size:1.15em;margin:0 4px 0 0}
 #twp .bwi{align-items:flex-start}
 .c.ty{color:#ffe11a;text-shadow:1.5px 0 #111,-1.5px 0 #111,0 1.5px #111,0 -1.5px #111,1.5px 1.5px #111,-1.5px 1.5px #111,1.5px -1.5px #111,-1.5px -1.5px #111,0 0 3px #111}
 </style></head><body>
@@ -280,7 +298,7 @@ a.sl{font-weight:600;font-size:.78rem;margin-left:6px;color:inherit;opacity:.8}
 <div class="seg" id="szs"><button data-n="7">7×7</button><button data-n="8">8×8</button><button data-n="9">9×9</button></div>
 <button class="big sw" id="m0"><span>Two players</span><span>Tábla készül...</span></button>
 <button class="big" id="m1">Játék a gép ellen</button>
-<div class="pnl" id="p1" hidden><div id="lvs"></div><button class="go sw" id="go1"><span>Indítás</span><span>Tábla készül...</span></button></div>
+<div class="pnl" id="p1" hidden><div id="lvs"></div><div class="lbl gol">Játék indítása</div><div class="gos"><button class="go sw" id="go1a"><span>Minden eszköz<i class="gst">★☆☆</i></span><span>Tábla készül...</span></button><button class="go sw" id="go1o"><span>Egy eszköz<i class="gst">★★☆</i></span><span>Tábla készül...</span></button><button class="go sw" id="go1"><span>Eszközök nélkül<i class="gst">★★★</i></span><span>Tábla készül...</span></button></div></div>
 <button class="big" id="m2">Play a friend online</button>
 <div class="pnl" id="p2" hidden><button class="go" id="mk">Create a game</button><div class="or">or</div><div class="row"><input type="text" id="jc" maxlength="4" placeholder="CODE" aria-label="Room code" autocomplete="off"><button class="n" id="jn">Join</button></div><div class="note" id="onote">Online play is coming soon.</div></div>
 <p class="rl"><a href="#" id="rl2">Játékszabály</a></p>
@@ -301,7 +319,7 @@ a.sl{font-weight:600;font-size:.78rem;margin-left:6px;color:inherit;opacity:.8}
 <button class="n sw" id="new"><span>Új játék</span><span>Tábla készül...</span></button><button class="n ar" id="undo" disabled aria-label="Visszavonás" title="Visszavonás">↶</button><button class="n ar" id="redo" disabled aria-label="Újra" title="Újra">↷</button></div>
 <div id="status" hidden></div><div id="rmz" hidden><span id="rmt"></span><button class="n" id="rmb">Rematch</button></div><div id="lamps" hidden title="Előkészítő csere: egymás után egyszer tehetsz olyan cserét, amely nem foglal mezőt. A következő cserédnek foglalnia kell, különben veszítesz."></div><div id="info"></div><div id="cbw" hidden role="alert"><p>A bot, amely ellen játszol, sokáig gondolkodik a következő lépésén.</p><button class="n" id="cbws">Játék leállítása</button></div>
 <button class="swb" id="swt" hidden disabled aria-label="Csere megerősítése" title="Csere megerősítése"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.5l5 5 10-11" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-<div id="wrap"><div id="bd"><div id="grid"></div><svg id="ov"></svg><button class="swb" id="swl" hidden disabled aria-label="Csere megerősítése" title="Csere megerősítése"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.5l5 5 10-11" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button class="swb" id="swr" hidden disabled aria-label="Csere megerősítése" title="Csere megerősítése"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.5l5 5 10-11" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div></div>
+<div id="tch"></div><div id="wrap"><div id="bd"><div id="grid"></div><svg id="ov"></svg><button class="swb" id="swl" hidden disabled aria-label="Csere megerősítése" title="Csere megerősítése"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.5l5 5 10-11" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button class="swb" id="swr" hidden disabled aria-label="Csere megerősítése" title="Csere megerősítése"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.5l5 5 10-11" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div></div>
 <div id="bt"><p class="rl hl" aria-live="polite"><a href="#" id="hint">Kérek egy tippet</a></p><p class="rl"><a href="#" id="rl">Játékszabály</a></p><div class="tools"><button class="n ar" id="log" aria-label="Játéknapló" title="Játéknapló exportálása">📋</button><button class="n ar" id="clr" aria-label="Színséma váltása" title="Színséma váltása"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="9" r="6.6" fill="#ff2d3d" style="mix-blend-mode:multiply"/><circle cx="15" cy="9" r="6.6" fill="#22c55e" style="mix-blend-mode:multiply"/><circle cx="12" cy="15" r="6.6" fill="#2f5bff" style="mix-blend-mode:multiply"/></svg></button></div></div>
 <aside id="tlp" hidden><h2>Eszközök</h2><div id="tll"></div><p class="tlf"><a href="#" id="tlg">Eszköznapló letöltése</a></p></aside><div id="res" hidden></div>
 <div id="logp" hidden><textarea id="logt" readonly rows="12"></textarea><button class="n" id="logc">Másolás</button></div>
@@ -1740,7 +1758,7 @@ Give it this whole file. A good first request: "Write a 12321 bot that follows t
 </script>
 <script>
 /* LAB: storage. Writes go to 12321lab.* keys; a few keys fall back to the real game's values when the lab has none yet. Saved bots are read-only. */
-const LABLS=(()=>{const P='12321.',L='12321lab.',FBK=new Set(['12321.scheme','12321.size','12321.lvl','12321.cb','12321.bots','12321.prof']),k2=k=>k.startsWith(P)?L+k.slice(P.length):k;
+const LABLS=(()=>{const P='12321.',L='12321lab.',FBK=new Set(['12321.scheme','12321.size','12321.lvl','12321.cb','12321.bots']),k2=k=>k.startsWith(P)?L+k.slice(P.length):k;
  return {getItem(k){const v=localStorage.getItem(k2(k));return v!==null?v:FBK.has(k)?localStorage.getItem(k):null},
   setItem(k,v){if(k==='12321.bots')return;localStorage.setItem(k2(k),String(v))},
   removeItem(k){if(k==='12321.bots')return;localStorage.removeItem(k2(k))}};})();
@@ -2044,7 +2062,7 @@ function tlStoreU(){try{LABLS.setItem(TLK,JSON.stringify(TLU));return true}catch
 tlLoadU();
 const tlSetTxt=s=>(s.input==0?'Nincs bemenet':'Bemenet: '+s.input+' '+(s.tiles=='free'?'szabad ':'')+'mező')+' · '+(s.style=='fill'?'sárga kitöltés':'sárga számjegyek');
 function tlTool(id){
- if(!id)return null;
+ if(!id||TMODE=='none'||(TMODE=='one'&&TCHOSEN&&id!==TCHOSEN))return null; /* only the tools the game mode allows */
  if(id.startsWith('u:')){const u=TLU.find(t=>'u:'+t.id==id);if(!u)return null;return {id,name:u.name,desc:tlSetTxt(u.set),inp:u.set.input,any:u.set.tiles=='any',fill:u.set.style=='fill',code:u.code,custom:true}}
  const t=TOOLS.find(t=>t.id==id);if(!t)return null;
  return Object.assign({},t,{code:TL_CODE[t.code]});
@@ -2142,19 +2160,28 @@ function tlClick(i){
 function tlCheck(){
  const p=document.getElementById('tlp');if(!p)return;
  if(!p.dataset.ok){tlBuild();p.dataset.ok=1} /* marked as built only after it worked */
- p.hidden=!(mode>0&&!net);
+ p.hidden=!(mode>0&&!net&&TMODE!='none');
  if(TL.id&&(TL.key!==tlKey()||p.hidden))tlOff();
 }
 function tlBuild(){
  const btn=t=>`<button class="tlb" data-t="${t.id}" aria-pressed="false"><b>${esc(t.name)}</b><span>${esc(t.desc)}</span></button>`;
- let h=TOOLS.map(btn).join('');
- h+='<div class="tld">Saját eszközök</div>';
- for(const u of TLU)h+='<div class="tlu">'+btn({id:'u:'+u.id,name:u.name,desc:tlSetTxt(u.set)})+'<a href="#" class="tle" data-e="'+esc(u.id)+'">szerkesztés</a></div>';
- if(TLU.length<TLMAX)h+='<div class="tlu tln"><span>Saját eszköz</span><a href="#" class="tle" data-e="">létrehozás</a></div>';
+ let h='';
+ if(TMODE=='one'){
+  /* one tool: while choosing, every tool is listed (no create / edit links); afterwards only the chosen one */
+  const all=TOOLS.map(t=>({id:t.id,name:t.name,desc:t.desc})).concat(TLU.map(u=>({id:'u:'+u.id,name:u.name,desc:tlSetTxt(u.set)})));
+  if(!TCHOSEN)h='<p class="tlc">Válaszd ki azt az egy eszközt, amelyet ebben a játékban használsz.</p>'+all.map(btn).join('');
+  else h=all.filter(t=>t.id==TCHOSEN).map(btn).join('');
+ }else{
+  h=TOOLS.map(btn).join('');
+  h+='<div class="tld">Saját eszközök</div>';
+  for(const u of TLU)h+='<div class="tlu">'+btn({id:'u:'+u.id,name:u.name,desc:tlSetTxt(u.set)})+'<a href="#" class="tle" data-e="'+esc(u.id)+'">szerkesztés</a></div>';
+  if(TLU.length<TLMAX)h+='<div class="tlu tln"><span>Saját eszköz</span><a href="#" class="tle" data-e="">létrehozás</a></div>';
+ }
  $('tll').innerHTML=h;tlPanel();
  $('tll').onclick=e=>{
   const a=e.target.closest('a.tle');if(a){e.preventDefault();twOpen(a.dataset.e);return}
-  const b=e.target.closest('button.tlb');if(b)tlToggle(b.dataset.t);
+  const b=e.target.closest('button.tlb');if(!b)return;
+  if(TMODE=='one'&&!TCHOSEN)tmChoose(b.dataset.t);else tlToggle(b.dataset.t);
  };
  $('tlg').onclick=e=>{e.preventDefault();dlFile('12321-tool-log-'+new Date().toISOString().slice(0,16).replace(/[:T]/g,'-')+'.txt',tlLogText(),'text/plain')};
 }
@@ -2304,6 +2331,49 @@ document.addEventListener('click',e=>{
 });
 document.addEventListener('input',e=>{if(TW&&e.target.id=='twc')twCount()});
 addEventListener('keydown',e=>{if(e.key=='Escape'&&TW&&$('cfo').hidden&&!$('two').hidden)twClose()});
+/* ===== LAB: GAME MODES AND STARS =====
+   Against the computer there are three modes: all tools, one tool (chosen in the tools panel before the board is created), no tools.
+   A win without undo against a built-in opponent (Archie to Fern) unlocks the next opponent and earns stars: all tools ★, one tool ★★,
+   no tools ★★★; the best is kept. A win with undo reveals the opponent's strategy, as before. The hint is gone in the lab. */
+var TMODE='all',TCHOSEN=null,STARRES=null;
+const TMK='12321.tmode';
+function tmLoad(){try{const o=JSON.parse(LABLS.getItem(TMK)||'null');if(o&&['none','one','all'].includes(o.m)){TMODE=o.m;TCHOSEN=o.t||null}}catch(e){}}
+function tmSave(){try{LABLS.setItem(TMK,JSON.stringify({m:TMODE,t:TCHOSEN}))}catch(e){}}
+tmLoad();
+const tmTxt=()=>TMODE=='one'?'one:'+(TCHOSEN||'?'):TMODE;
+const tmStars=()=>TMODE=='none'?3:TMODE=='one'?2:1;
+const pfStars=k=>(PF&&PF.w&&PF.w[k]&&+PF.w[k].st)||0;
+const starsTxt=n=>'★'.repeat(n)+'☆'.repeat(3-n);
+const starsHtml=n=>'<span class="str" aria-label="'+n+' csillag a 3-ból">'+starsTxt(n)+'</span>';
+/* the Start buttons show stars only for the built-in opponents */
+function tmStarsVis(){const p=$('p1');if(p)p.classList.toggle('nost',!(lvl>=1&&lvl<=6))}
+function tmStart(m,tm){
+ TMODE=tm;TCHOSEN=null;tmSave();
+ if(TL.id)tlOff();
+ if(tm!=='one'){$('gm').classList.remove('choose');startGame(m);tlBuild();return}
+ /* one tool: the game screen opens without a board; the board is created once a tool is chosen */
+ if(m==CBM){const b=cbGet(cbSel);CB=b?{id:b.id,name:cbName(b),code:b.code,fp:b.fp||''}:null;if(!CB)m=1}
+ cbStop();clearSaved();tok++;busy=false;log=[];over=false;sel=null;sel2=null;STARRES=null;
+ $('size').value=sz;$('mode').value=m;mode=m;
+ $('menu').hidden=true;$('ol').hidden=true;$('gm').hidden=false;$('gm').classList.add('choose');
+ $('res').hidden=true;$('logp').hidden=true;
+ head();$('w2').textContent=$('w2').textContent.replace(/^\d+×\d+/,sz+'×'+sz);
+ $('tch').innerHTML='<p><b>Egy eszköz</b></p><p>Válaszd ki a jobb oldali eszközpanelen azt az egy eszközt, amelyet ebben a játékban használsz. A tábla a választásod után készül el.</p>';
+ tlBuild();$('tlp').hidden=false;
+ scrollTo(0,0);
+}
+function tmChoose(id){
+ if(!$('gm').classList.contains('choose'))return;
+ TCHOSEN=id;tmSave();
+ $('tch').innerHTML='<p><b>Tábla készül...</b></p>';
+ requestAnimationFrame(()=>setTimeout(()=>{$('gm').classList.remove('choose');init();head();tlBuild()},0));
+}
+function tmResHtml(){
+ const r=STARRES;if(!r)return '';
+ if(r.undo)return '<div class="rts">Visszavonással nyertél, így most nincs csillag.</div>';
+ const nm=['','Bronz','Ezüst','Arany'][r.n];
+ return '<div class="rts">'+starsHtml(r.n)+' '+nm+(r.n>r.prev?(r.prev?' – új legjobb!':' – az első csillagaid '+LV[mode]+' ellen!'):' – a legjobbad: '+starsTxt(r.prev))+'</div>';
+}
 /* ===== /LAB: TOOLS ===== */
 
 const LIMIT=200,G=5,M=5;
@@ -3233,6 +3303,7 @@ function genBoard(){
  return b;
 }
 function init(v0,first){
+ STARRES=null; /* LAB */
  cbStop();cbStrikes=0;cbNote='';cbSteps=null;
  N=+$('size').value;mode=+$('mode').value;streak=[0,0,0];ud=[0,0,0];
  buildLN();
@@ -3247,7 +3318,7 @@ function redo(){if(busy||!fut.length)return;cbAbort();tTurn=performance.now();tP
 function undo(){if(busy||!hist.length)return;cbAbort();tTurn=performance.now();tPend=null;fut.push({s:cur,turn,moves,over,info,le:log.pop(),st:streak.slice()});{const u=fut[fut.length-1].le;if(u)ud[mode>0?1:u.p]++}{const f=fut[fut.length-1];if(f.le&&f.le.r>=3){delete f.le.w;delete f.le.r;delete f.le.ab;f.over=false;f.info=''}}const h=hist.pop();streak=h.st.slice();cur=h.s;turn=h.turn;moves=h.moves;over=false;sel=null;tok++;info='Visszavontál egy lépést.';render();soloEv('u');saveGame()}
 function lockTxt(i){const t=[];if(cur.lv[i])t.push((cur.lv[i]==1?'R':'B')+'v');if(cur.lh[i])t.push((cur.lh[i]==1?'R':'B')+'h');return t.join(',')}
 function exportLog(){
- const L=['12321-LOG v1','N='+N+' M=5'+' mode='+(['two-players','computer-1-novice','computer-2-amateur','computer-3-expert','computer-4-master','computer-5-grandmaster','computer-6-reserve'][mode]||(mode==TUT?'computer-8-tutorial':mode==CBM?'computer-9-custom-bot':'?'))+' rule='+['classic','free-side'][rv]+' free-swap='+(clk?'on':'off')+' road-completion=on rules-version='+RL+' moves='+log.length+' to-move='+nameEn(turn)+(over?' (over)':''),
+ const L=['12321-LOG v1','N='+N+' M=5'+' mode='+(['two-players','computer-1-novice','computer-2-amateur','computer-3-expert','computer-4-master','computer-5-grandmaster','computer-6-reserve'][mode]||(mode==TUT?'computer-8-tutorial':mode==CBM?'computer-9-custom-bot':'?'))+' rule='+['classic','free-side'][rv]+' free-swap='+(clk?'on':'off')+' road-completion=on rules-version='+RL+' tools='+tmTxt()+' moves='+log.length+' to-move='+nameEn(turn)+(over?' (over)':''),
  'Legend: R=red, B=blue, v/h=vertical/horizontal road locked the tile. Coordinates: (row,column) from 0.','START POSITION:'];
  for(let r=0;r<N;r++)L.push(start.slice(r*N,r*N+N).join(' '));
  L.push('MOVES (tile values BEFORE the swap):');
@@ -3744,9 +3815,10 @@ $('cont').hidden=!lastRoom();$('cont').textContent='Continue: online game '+(las
  if(lvl==CBM&&!cbGet(cbSel))lvl=1;
  if(lvl!=CBM&&!pfAvail(lvl)){while(lvl>1&&!pfAvail(lvl))lvl--}
  $('lvs').innerHTML=[TUT,1,2,3,4,5,6].map(k=>pfAvail(k)
-  ?`<div class="lvr"><label><input type="radio" name="lv" value="${k}"${k==lvl?' checked':''}>${LV[k]}</label><a href="#" class="sg" data-k="${k}">${pfWon(k)?'Stratégia megtekintése':'Stratégia felfedése'}</a></div>`
-  :`<div class="lvr lk"><label><input type="radio" disabled>${LV[k]}</label><span class="sgt">Beat the previous opponent to unlock</span></div>`).join('')+cbRows();
+  ?`<div class="lvr"><label><input type="radio" name="lv" value="${k}"${k==lvl?' checked':''}>${LV[k]}${k>=1&&k<=6?' '+starsHtml(pfStars(k)):''}</label><a href="#" class="sg" data-k="${k}">${pfWon(k)?'Stratégia megtekintése':'Stratégia felfedése'}</a></div>`
+  :`<div class="lvr lk"><label><input type="radio" disabled>${LV[k]}</label><span class="sgt">Feloldás: győzd le az előzőt</span></div>`).join('')+cbRows();
  $('pnote').hidden=!pfNote;$('pnote').textContent=pfNote;
+ tmStarsVis(); /* LAB */
 }
 function showMenu(){cbStop();leaveNet();soloStop();clearSaved();$('onote').textContent='';$('mk').disabled=false;$('jn').disabled=false;tok++;busy=false;$('ol').hidden=true;$('gm').hidden=true;$('menu').hidden=false;$('rbo').hidden=true;drawMenu();scrollTo(0,0)}
 function startGame(m){
@@ -3770,8 +3842,11 @@ function working(btn,fn,ev){
 $('m0').onclick=e=>working($('m0'),()=>startGame(0),e);
 $('m1').onclick=()=>{pm=pm==1?0:1;drawMenu()};
 $('m2').onclick=()=>{pm=pm==2?0:2;drawMenu()};
-$('lvs').onchange=e=>{if(e.target.name=='lv'){const v=e.target.value;if(v.startsWith('c:')){lvl=CBM;cbSel=v.slice(2);sv('cb',cbSel)}else lvl=+v;sv('lvl',lvl)}};
-$('go1').onclick=e=>working($('go1'),()=>startGame(lvl==CBM&&cbGet(cbSel)?CBM:pfAvail(lvl)?lvl:1),e);
+$('lvs').onchange=e=>{if(e.target.name=='lv'){const v=e.target.value;if(v.startsWith('c:')){lvl=CBM;cbSel=v.slice(2);sv('cb',cbSel)}else lvl=+v;sv('lvl',lvl);tmStarsVis()}};
+const goM=()=>lvl==CBM&&cbGet(cbSel)?CBM:pfAvail(lvl)?lvl:1; /* LAB: three Start buttons, one per game mode */
+$('go1a').onclick=e=>working($('go1a'),()=>tmStart(goM(),'all'),e);
+$('go1o').onclick=()=>tmStart(goM(),'one');
+$('go1').onclick=e=>working($('go1'),()=>tmStart(goM(),'none'),e);
 $('onote').textContent='';
 $('mk').onclick=createRoom;
 $('jn').onclick=()=>{const c=$('jc').value.trim().toUpperCase();if(!/^[A-Z0-9]{4}$/.test(c)){menuNote('Type the 4-character code from your friend.');return}joinFlow(c,false)};
@@ -4178,7 +4253,7 @@ function resFill(){
  /* how it ended */
  const e=R.end,w=e.w,l=3-w;
  const t=e.kind=='draw'?'draw':e.kind=='aborted'?'aborted':e.kind=='last'?'last':e.kind=='forfeit'?'forfeit':R.ek===null?null:e.kind+(R.ek=='F'?'F':R.ek=='A'?'A':'U');
- let h=w?`<div class="rt1 ${w==1?'rt':'bt'}">${name(w)} nyert</div>`:'<div class="rt1">'+(e.kind=='aborted'?'Nincs győztes':'Döntetlen')+'</div>';
+ let h=w?`<div class="rt1 ${w==1?'rt':'bt'}">${name(w)} nyert</div>`:'<div class="rt1">'+(e.kind=='aborted'?'Nincs győztes':'Döntetlen')+'</div>';h+=tmResHtml(); /* LAB: stars */
  if(t){
   const dt=[];
   if(e.kind=='road')dt.push('Összekötött oldalak: '+e.axes.join(' és '));
@@ -4255,7 +4330,7 @@ function applyU(P,u){
  }
 }
 /* queue a write for the current profile; the first one also creates the record */
-function pfQueue(u){return; /* LAB */
+function pfQueue(u){for(const k in u)if(!k.startsWith('w/'))delete u[k];applyU(PF,u);pfSave();return; /* LAB: wins, unlocks and stars stay in the lab's own browser storage; nothing is sent */
  if(!PF.srv){u=Object.assign({pid:PF.pid,nm:PF.nm,c:PF.c},u);PF.srv=true}
  applyU(PF,u);PQ.push({code:PF.code,u});pfSave();pfFlush();
 }
@@ -4289,20 +4364,20 @@ async function pfLoad(){return; /* LAB */
  pfIdle();pfRefresh();
 }
 function pfRefresh(){if(!$('menu').hidden)drawMenu();if(!$('pfo').hidden)pfDraw()}
-const pfAvail=k=>true; /* LAB: every opponent is open */
+const pfAvail=k=>k==TUT||k==1||!!(PF.w[k-1]&&PF.w[k-1].c);
 const pfWon=k=>k==TUT||!!(PF.w[k]&&PF.w[k].s);
 const pfClean=k=>!!(PF.w[k]&&PF.w[k].c);
 function pfHash(s){let h=5381;for(let i=0;i<s.length;i++)h=(h*33+s.charCodeAt(i))>>>0;return h.toString(36)}
 let GID='';
 /* called once a game is over (also after an undo + a new ending: the same game entry is replaced, unlocks are only ever added). Returns a note for the info line. */
-function pfGameEnd(){return ''; /* LAB */
+function pfGameEnd(){
  try{
   if(!over||RP)return '';
   const L=log[log.length-1]||{},w=L.w||0,m=net?7:mode,me=net?net.seat:(mode>0?1:0);
   const gid=net?'o'+net.code+'g'+net.gen+'x'+pfHash(start.join('')):(SOLO.id||GID);
   const e={t:Date.now(),m,n:N,f:firstP,me,w,e:L.r==4?'a':L.r==3?'f':L.r==2?'l':L.r?'s':w?'c':'x',sw:log.length,ud:net?-1:mode>0?ud[1]:ud[1]+ud[2],rl:RL,b:start.join(''),mv:log.map(l=>l.a+','+l.b).join(';')};
   if(m==CBM&&CB){e.bn=CB.name;e.bf=CB.fp||'';e.sp=log.map(l=>l.st==null?'':l.st).join(';');if(L.r==4)e.ab=L.ab}
-  e.fv=2;e.ms=log.map(l=>l.ms==null?'':l.ms).join(';');e.nt=log.map(l=>l.n||0).join(';');
+  e.fv=2;e.tm=tmTxt();e.ms=log.map(l=>l.ms==null?'':l.ms).join(';');e.nt=log.map(l=>l.n||0).join(';');
   e.rd=log.map(l=>(l.segs||[]).map(g=>g.o+(Math.abs(g.cells[1]-g.cells[0])==1?'H':'V')+g.cells.join('.')).join('/')).join(';');
   e.ev=cur.v.join('');e.elh=cur.lh.join('');e.elv=cur.lv.join('');
   const old=PF.h[gid];
@@ -4310,8 +4385,10 @@ function pfGameEnd(){return ''; /* LAB */
   if(!old||old.mv!==e.mv||old.ud!==e.ud||old.w!==e.w||old.fv!==2)u['h/'+gid]=e;
   let note='';
   if(!net&&mode>=1&&mode<=6&&w==1){
-   if(!pfWon(mode)){u['w/'+mode+'/s']=1;note=LV[mode]+'’s strategy is now in the menu.'}
-   if(!ud[1]&&!pfClean(mode)){u['w/'+mode+'/c']=1;if(mode<6)note+=(note?' ':'')+'New opponent unlocked: '+LV[mode+1]+'.'}
+   if(!pfWon(mode)){u['w/'+mode+'/s']=1;note=LV[mode]+' stratégiája mostantól megtalálható a menüben.'}
+   if(!ud[1]){const st=tmStars(),old=pfStars(mode);STARRES={n:st,prev:old,undo:false};if(st>old)u['w/'+mode+'/st']=st; /* LAB: stars */
+    if(!pfClean(mode)){u['w/'+mode+'/c']=1;note+=(note?' ':'')+(mode<6?'Új ellenfél feloldva: '+LV[mode+1]+'.':'Gratulálunk, legyőzted az utolsó ellenfelet!')}}
+   else STARRES={undo:true};
   }
   if(Object.keys(u).length)pfQueue(u);
   return note;
@@ -4321,7 +4398,7 @@ function pfGameEnd(){return ''; /* LAB */
 function showStrat(k){
  let h='<h2>'+LV[k]+'</h2>';
  if(k==TUT)h+='<p>'+STRAT[TUT]+'</p>';
- else if(!pfWon(k))h+='<p>Nyerj legalább egy játékot '+LV[k]+' ellen, hogy lásd a stratégiáját.</p><p>Ha visszavonás nélkül nyersz, ezt is feloldod: '+(k<6?'a következő ellenfél, '+LV[k+1]:'egy jelvény a statisztikádban')+'.</p>';
+ else if(!pfWon(k))h+='<p>Nyerj legalább egy játékot '+LV[k]+' ellen, hogy lásd a stratégiáját.</p><p>'+(k<6?'Ha visszavonás nélkül nyersz, a következő ellenfelet is feloldod ('+LV[k+1]+'), és csillagokat szerzel':'Ha visszavonás nélkül nyersz, csillagokat szerzel')+': ★ minden eszközzel, ★★ egy eszközzel, ★★★ eszközök nélkül.</p>';
  else{
   h+='<p>'+STRAT[k]+'</p>';
   if(k<6)h+='<p class="pfs">'+(pfClean(k)?'Visszavonás nélkül legyőzted: '+LV[k]+', így '+LV[k+1]+' feloldva.':'Győzd le visszavonás nélkül: '+LV[k]+', hogy feloldd: '+LV[k+1]+'.')+'</p>';
